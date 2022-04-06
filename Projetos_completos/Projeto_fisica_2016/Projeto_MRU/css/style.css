@@ -1,0 +1,93 @@
+*{
+    font-family: 'Audiowide', cursive;
+}
+div.control{
+    width: 70%;
+    height: 150px;
+    text-align: center;
+    border-bottom: none;
+    border-radius: 10px;
+    background-color: #00A779;
+    margin: auto;
+}
+div.game{
+	width: 70%;
+    height: 346px;
+    text-align: center;
+    background-color: #537F73;
+    border-radius: 10px;
+    margin: auto;
+}
+input{
+    float: left;
+    width: 70px;
+}
+span.sp1{   
+    float: left;
+    margin-right: 10px;
+    padding-left: 40px;
+}
+button.pronto{
+    margin-top: 5px;
+}
+button.pronto2{
+    position: relative;
+    float: right;
+    right: 50px;
+}
+ul li p{
+    font-size: 10c  px;
+}
+li{
+    margin: auto;
+    width: 300px;
+}
+ul{
+    list-style: none;
+    margin-top: 10px;
+}
+div.dentro{
+    width: 80%;
+    margin: auto;
+    height: 344px;
+}
+img{
+    width: 100%;
+    height: 3px;
+    position: relative;
+    top: 281px;
+}
+div.bloco{
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 291px;
+    background-color: #CDF800;
+}
+div.cube{
+    background-color: #86AA6F;
+}
+body, html{
+    text-align: center;
+    position: relative;
+    top: 0px;
+    background-color: #86AA6F;
+}
+p.p1{
+    padding-top: 0px;
+    margin: 0px;
+}
+h2 {
+    text-align: center;
+}
+@media (max-width:600px){
+    button.pronto{
+        position: relative;
+    }
+    *{
+        font-size: 8px;
+    }
+    ul{
+        padding: 0px;
+    }
+}

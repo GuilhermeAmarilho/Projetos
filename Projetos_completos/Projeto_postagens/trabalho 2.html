@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <textarea rows="8" cols="80"></textarea>
+    <p>
+      <output>0</output> caractere(s)
+    </p>
+    <button>Postar!</button>
+    <div id="postagens"></div>
+    <script type="text/javascript">
+      ((document.querySelector('body')).childNodes[1]).setAttribute('id',"texto");
+      (document.querySelector('output')).setAttribute('id',"saida");
+      (document.querySelector('button')).setAttribute('id',"adicionar");
+      (document.querySelector('body')).setAttribute('bgcolor',"#008080");
+      (document.querySelector('body')).setAttribute('align',"center");
+      onkeyup = function (){
+        var string=document.getElementById('texto').value.length;
+        if (parseInt(document.querySelector('output').value)>document.getElementById('texto').value.length) {
+          valor--;
+        }
+        var valor=parseInt(string);
+        document.getElementById('saida').textContent=valor;
+      }
+      var button=document.getElementById('adicionar');
+      var div=document.getElementById('postagem');
+      var button=document.getElementById('adicionar');
+      var div=document.getElementById('postagens');
+      button.onclick=function (){
+        var texto= document.getElementById('texto').value
+        var p= document.createElement('p');
+        var br=document.createElement('br');
+        p.textContent = texto;
+        div.appendChild(p);
+        div.appendChild(br);
+      }
+      var button2=document.createElement('button');
+      var body=document.querySelector('body');
+      body.appendChild(button2);
+      document.querySelector('body').children[5].setAttribute('id',"limpesa");
+      document.getElementById('limpesa').setAttribute('onclick','div.textContent=""');
+      nbuton=document.createTextNode("limpar tudo");
+      button2.appendChild(nbuton);
+      a=document.querySelector('body');b=document.getElementById('limpesa');c=document.getElementById('postagens');
+      a.insertBefore(b,c);
+      button2=document.createElement('h1');
+      body.appendChild(button2)
+      nbuton=document.createTextNode("Postagens!");
+      button2.appendChild(nbuton);
+      a=document.querySelector('body');b=document.querySelector('h1');c=document.getElementById('texto');
+      a.insertBefore(b,c);
+    </script>
+  </body>
+</html>

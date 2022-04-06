@@ -1,0 +1,68 @@
+<html>
+<body>
+<canvas id="canvas1" width="800" height="600"></canvas>
+</body>
+<script>
+var contexto = document.getElementById("canvas1").getContext("2d");
+var fps = 20;
+
+//////////////////////////////////////////////////
+
+function Obstaculo(x, tipo) //tipo: 0 == alto, 1 == baixo
+{	this.largura = parseInt(1+Math.random()*50)*10;
+	this.altura = parseInt(1+Math.random()*20)*10;
+	this.x = x;
+	this.y = (tipo == 0) ? 0 : 600-this.altura;	
+	this.cor = "rgb("+parseInt(Math.random()*255)+", "+parseInt(Math.random()*255)+", "+parseInt(Math.random()*255)+")";
+}
+
+Obstaculo.prototype.atualiza = function(velocidade_x)
+{	this.x += velocidade_x;
+}
+
+Obstaculo.prototype.desenha = function(contexto)
+{	contexto.fillStyle = this.cor;
+	contexto.fillRect(this.x, this.y, this.largura, this.altura);
+}
+
+//////////////////////////////////////////////////
+
+var obstaculos0 = [];
+obstaculos0.push(new Obstaculo(801, 0));
+
+var obstaculos1 = [];
+obstaculos1.push(new Obstaculo(801, 1));
+
+var timer1 = setInterval(loop, 1000/fps);
+
+function loop()
+{	contexto.clearRect(0, 0, 800, 600);
+	contexto.strokeRect(0, 0, 800, 600);
+
+	for (var i = 0; i < obstaculos0.length; i++)
+	{	obstaculos0[i].atualiza(-5);
+		obstaculos0[i].desenha(contexto);
+	}
+
+	for (var i = 0; i < obstaculos1.length; i++)
+	{	obstaculos1[i].atualiza(-5);
+		obstaculos1[i].desenha(contexto);
+	}
+
+	for (var i = 0; i < obstaculos0.length; )
+		if (obstaculos0[i].x+obstaculos0[i].largura < 0) obstaculos0.splice(i, 1);
+		else i++;
+
+	for (var i = 0; i < obstaculos1.length; )
+		if (obstaculos1[i].x+obstaculos1[i].largura < 0) obstaculos1.splice(i, 1);
+		else i++;
+
+	while (obstaculos0[obstaculos0.length-1].x+obstaculos0[obstaculos0.length-1].largura < 800)
+		obstaculos0.push(new Obstaculo(obstaculos0[obstaculos0.length-1].x+obstaculos0[obstaculos0.length-1].largura, 0));
+
+	while (obstaculos1[obstaculos1.length-1].x+obstaculos1[obstaculos1.length-1].largura < 800)
+		obstaculos1.push(new Obstaculo(obstaculos1[obstaculos1.length-1].x+obstaculos1[obstaculos1.length-1].largura, 1));
+}
+</script>
+</html>
+

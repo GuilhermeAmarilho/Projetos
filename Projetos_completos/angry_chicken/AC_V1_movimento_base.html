@@ -1,0 +1,52 @@
+<html>
+<body>
+<canvas id="canvas1" width="800" height="600">
+<script>
+var contexto = document.getElementById("canvas1").getContext("2d");
+var fps = 20;
+
+function Bola()
+{	this.largura = 20;
+	this.altura = 20;
+	this.x = 100;
+	this.y = 100;
+	this.velocidade_x = 2;
+	this.velocidade_y = -20;
+	this.aceleracao_x = 0;
+	this.aceleracao_y = 0;
+	this.gravidade = 2;
+	this.restituicao = 0.9;
+	this.atrito = 0.05;
+
+	this.atualiza = function()
+	{	this.velocidade_x += this.aceleracao_x;
+		this.velocidade_y += this.aceleracao_y+this.gravidade;
+		this.x += this.velocidade_x;
+		this.y += this.velocidade_y;
+		if (this.y > 600-this.altura)
+		{	this.y = 600-this.altura;
+			this.velocidade_y = -this.velocidade_y*this.restituicao;
+			this.velocidade_x *= 1-this.atrito;
+		}
+	}
+
+	this.desenha = function()
+	{	contexto.fillRect(this.x, this.y, this.largura, this.altura);
+	}
+}
+
+var bola1 = new Bola();
+
+var timer1 = setInterval(loop, 1000/fps);
+
+function loop()
+{	//contexto.clearRect(0, 0, 800, 600);
+	contexto.strokeRect(0, 0, 800, 600);
+
+	bola1.atualiza();
+	bola1.desenha();
+}
+</script>
+</body>
+</html>
+

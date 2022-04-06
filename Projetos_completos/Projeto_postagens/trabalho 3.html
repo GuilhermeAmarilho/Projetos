@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>formatação com emoji</title>
+  </head>
+    <body>
+      <textarea rows="8" cols="80"></textarea>
+      <p><output >0</output> Caracteres!</p>
+      <button>Postar!</button>
+      <div id="postar">
+      </div>
+      <script type="text/javascript">
+        ((document.querySelector('body')).childNodes[1]).setAttribute('id',"texto");
+        (document.querySelector('output')).setAttribute('id',"saida");
+        (document.querySelector('button')).setAttribute('id',"adicionar");
+        (document.querySelector('button')).setAttribute('onclick',"emoji()");
+        (document.querySelector('body')).setAttribute('bgcolor',"#008080");
+        (document.querySelector('body')).setAttribute('align',"center");
+        function emoji(x){
+          var texto=aux=document.getElementById('texto').value;
+          var figura=['<img src="blush.png" width="20" height="20">','<img src="confused.png" width="20" height="20">','<img src="cry.png" width="20" height="20">','<img src="expressionless.png" width="20" height="20">','<img src="grinning.png" width="20" height="20">','<img src="joy.png" width="20" height="20">','<img src="kissing_heart.png" width="20" height="20">','<img src="laughing.png" width="20" height="20">','<img src="nerd.png" width="20" height="20">','<img src="no_mouth.png" width="20" height="42">','<img src="open_mouth.png" width="20" height="20">','<img src="persevere.png" width="20" height="20">','<img src="sleeping.png" width="20" height="20">','<img src="sleepy.png" width="20" height="20">','<img src="sunglasses.png" width="20" height="20">','<img src="sweat_smile.png" width="20" height="20">','<img src="triumph.png" width="20" height="20">','<img src="unamused.png" width="20" height="20">','<img src="upside_down.png" width="20" height="20">','<img src="wink.png" width="20" height="20">','<img src="yum.png" width="20" height="20">'];
+          var code=[":blush:",":confused:",":cry:",":expressionless:",":grinning:",":joy:",":kissing_heart:",":laughing:",":nerd:",":no_mouth:",":open_mouth:",":persevere:",":sleeping:",":sleepy:",":sunglasses:",":sweat_smile:",":triumph:",":unamused:",":upside_down:",":wink:",":yum:"]
+          var contador=0;;
+          for (var a = 0; a < figura.length; a++) {
+            texto=texto.replace(code[a],figura[a]);
+            aux=aux.replace(code[a],"");
+          }
+          contador=aux.length;
+          document.getElementById('saida').textContent=contador;
+          var div=document.querySelector('div');
+          var p= document.createElement('p');
+          var br=document.createElement('br');
+          p.innerHTML=texto;
+          console.log(texto)
+          div.appendChild(p);
+          div.appendChild(br);
+        }
+      </script>
+    </body>
+</html>

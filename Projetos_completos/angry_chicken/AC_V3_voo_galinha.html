@@ -1,0 +1,54 @@
+<html>
+<body>
+<canvas id="canvas1" width="800" height="600"></canvas>
+</body>
+<script>
+var contexto = document.getElementById("canvas1").getContext("2d");
+var fps = 20;
+
+//////////////////////////////////////////////////
+
+function Animacao()
+{	this.imagem = new Image();
+	this.imagem.src = "sprites.png";
+	this.atual = 0;
+	this.temporizador = 0;
+	this.sequencia = [ { x:   0, y: 0, largura: 31, altura: 28, tempo: 2, proximo: 1 },
+					   { x:  31, y: 0, largura: 31, altura: 28, tempo: 2, proximo: 2 },
+					   { x:  62, y: 0, largura: 31, altura: 28, tempo: 2, proximo: 3 },
+					   { x:  93, y: 0, largura: 31, altura: 28, tempo: 2, proximo: 4 },
+					   { x: 124, y: 0, largura: 31, altura: 28, tempo: 2, proximo: 5 },
+					   { x: 155, y: 0, largura: 31, altura: 28, tempo: 2, proximo: 0 } ];
+}
+
+Animacao.prototype.atualiza = function()
+{	if (++this.temporizador == this.sequencia[this.atual].tempo)
+	{	this.atual = this.sequencia[this.atual].proximo;
+		this.temporizador = 0;
+	}
+}
+
+Animacao.prototype.desenha = function(contexto, x, y)
+{	contexto.drawImage(this.imagem,
+		this.sequencia[this.atual].x, this.sequencia[this.atual].y,
+		this.sequencia[this.atual].largura, this.sequencia[this.atual].altura,
+		x, y,
+		this.sequencia[this.atual].largura, this.sequencia[this.atual].altura);
+}
+
+//////////////////////////////////////////////////
+
+var animacao1 = new Animacao();
+
+var timer1 = setInterval(loop, 1000/fps);
+
+function loop()
+{	contexto.clearRect(0, 0, 800, 600);
+	contexto.strokeRect(0, 0, 800, 600);
+
+	animacao1.atualiza();
+	animacao1.desenha(contexto, 100, 100);
+}
+</script>
+</html>
+

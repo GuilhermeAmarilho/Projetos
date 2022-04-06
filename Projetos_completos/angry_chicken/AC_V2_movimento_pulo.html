@@ -1,0 +1,50 @@
+<html>
+<body>
+<canvas id="canvas1" width="800" height="600"></canvas>
+</body>
+<script>
+var contexto = document.getElementById("canvas1").getContext("2d");
+var fps = 20;
+
+//////////////////////////////////////////////////
+
+function Galinha()
+{	this.x = 400;
+	this.y = 100;
+	this.largura = 20;
+	this.altura = 20;
+	this.velocidade_y = 0;
+	this.aceleracao_y = 2; //gravidade
+}
+
+Galinha.prototype.atualiza = function()
+{	this.velocidade_y += this.aceleracao_y;
+	this.y += this.velocidade_y;
+}
+
+Galinha.prototype.desenha = function(contexto)
+{	contexto.fillRect(this.x, this.y, this.largura, this.altura);
+}
+
+//////////////////////////////////////////////////
+
+var galinha1 = new Galinha();
+
+var timer1 = setInterval(loop, 1000/fps);
+
+function loop()
+{	contexto.clearRect(0, 0, 800, 600);
+	contexto.strokeRect(0, 0, 800, 600);
+	
+	galinha1.atualiza();
+	galinha1.desenha(contexto);
+}
+
+window.addEventListener("keyup", function(evento)
+{	evento.preventDefault();
+	if (evento.keyCode == 27) clearInterval(timer1);
+	if (evento.keyCode == 32) galinha1.velocidade_y = -20;
+}, false);
+</script>
+</html>
+

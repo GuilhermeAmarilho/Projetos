@@ -1,0 +1,27 @@
+Trabalho 
+
+1 - Desenvolva um programa crie uma sessão login com nome e email
+tenha arquivos para serem enviados para o servidor 
+no servidor aparecerá os arquivos armazenados pelo usuário ativo naquela sessão
+Usar cookie para nome do usuário
+O cookie deve ser expirado em 5 minutos.
+
+Exemplo de tela
+
+1 login, nome 
+
+link para a segunda tela
+
+A segunda tela deverá ter um formulário para entrada de arquivos do tipo upload.
+
+A partir daí deverá ter um link para a terceira tela.
+
+
+A terceira tela deverá apresentar, sob forma de tabela, a lista de arquivos enviados, e seus tamanhos.
+
+Nesta tela, deverá ter um link para geração de todas as informações do usuário sob forma de RELATÓRIO em PDF
+
+
+Criar um link para logout.
+
+Testar se a sessão foi destruída com sucesso. (use isset $SESSION para testar , mencionando que logout foi realizado com sucesso.) 

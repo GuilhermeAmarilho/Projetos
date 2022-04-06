@@ -1,0 +1,43 @@
+<html>
+<body>
+<canvas id="canvas1" width="800" height="600"></canvas>
+</body>
+<script>
+var contexto = document.getElementById("canvas1").getContext("2d");
+var fps = 20;
+
+//////////////////////////////////////////////////
+
+function Obstaculo(x, y, largura, altura, cor)
+{	this.largura = largura;
+	this.altura = altura;
+	this.x = x;
+	this.y = y;
+	this.cor = cor;
+}
+
+Obstaculo.prototype.atualiza = function(velocidade_x)
+{	this.x += velocidade_x;
+}
+
+Obstaculo.prototype.desenha = function(contexto)
+{	contexto.fillStyle = this.cor;
+	contexto.fillRect(this.x, this.y, this.largura, this.altura);
+}
+
+//////////////////////////////////////////////////
+
+var obstaculo1 = new Obstaculo(801, 500, 400, 100, "rgb(255, 0, 0)");
+
+var timer1 = setInterval(loop, 1000/fps);
+
+function loop()
+{	contexto.clearRect(0, 0, 800, 600);
+	contexto.strokeRect(0, 0, 800, 600);
+	
+	obstaculo1.atualiza(-5);
+	obstaculo1.desenha(contexto);
+}
+</script>
+</html>
+

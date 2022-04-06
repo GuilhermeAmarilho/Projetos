@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mercado x</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/ofertas.css">
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <script src="sw.js"></script>
+  </head> 
+  <body>
+    <div class='top'>
+        <div>
+            <span class='glyphicon glyphicon-shopping-cart top'></span>
+            <h2 class="top">Mercado X</h2>
+        </div>
+        <div class='navb'>
+            <a href="index.html">
+              <div class="nav" id="n1">
+                <span class='navatual glyphicon glyphicon-usd'><br>
+                Ofertas
+                </span>   
+              </div> 
+            </a>
+            <a href="carrinho.html">
+              <div class="nav" id="n2">
+                <span class='navi glyphicon glyphicon-briefcase'><br>
+                Carrinho  
+              </span>   
+              </div> 
+            </a>
+            <a href="contato.html">
+              <div class="nav" id="n3">
+                  <span class='navi glyphicon glyphicon-headphones'><br>
+                  contato
+                </span>   
+              </div> 
+            </a>
+            <a href="busca.html">
+              <div class="nav" id="n4">
+                  <span class='navi glyphicon glyphicon-search'><br>
+                  Busca
+                </span>   
+              </div> 
+            </a>
+            <a href="conta.html">
+              <div class="nav" id="n5">
+                  <span class='navi glyphicon glyphicon-user'><br>
+                  Você
+                </span>   
+             </div>  
+            </a>
+        </div>
+    </div>
+    <div class='ofertas'>
+      <h3>Ofertas do dia</h3>
+      <h5>Setor masculino</h5>
+      <div class='promo'>
+        <hr>
+        <div class="tagitem">
+          <h4>calça jeans branca</h4>
+          <img alt='' src="img/calcamasc.jpg">
+        </div>
+        <button class="compra"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+        <div class="compra">R$ 109.90</div>
+      </div>
+      <div class='promo'>
+        <div class="tagitem">
+          <h4>camiseta barba negra</h4>
+          <img alt='' src="img/camisetamasc.jpg">
+        </div>
+        <button class="compra"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+        <div class="compra">R$ 39.90</div>
+        <hr>
+      </div>
+      <h5>Setor feminino</h5>
+      <div class='promo'>
+        <hr>
+        <div class="tagitem cen">
+          <h4>bolsa branca tommy</h4>
+          <img alt='' src="img/bolsa.jpg">
+        </div>
+        <button class="compra"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+        <div class="compra">R$ 499.90</div>
+      </div>
+      <div class='promo'>
+        <div class="tagitem cen">
+          <h4>vestido polo branco</h4>
+          <img alt='' src="img/vestido.jpg">
+        </div>
+        <button class="compra"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+        <div class="compra">R$ 159.90</div>
+        <hr>
+      </div>
+      <h5>Casa</h5>
+      <div class='promo'>
+        <hr>
+        <div class="tagitem cen">
+          <h4>Muda de arvore p/jardim</h4>
+          <img alt='' src="img/muda.jpg">
+        </div>
+        <button class="compra"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+        <div class="compra">R$ 5.00</div>
+      </div>
+      <div class='promo'>
+        <div class="tagitem cen">
+          <h4>mangueira jardim 10m</h4>
+          <img alt='' src="img/mangueira.jpg">
+        </div>
+        <button class="compra"><span class="glyphicon glyphicon-thumbs-up"></span></button>
+        <div class="compra">R$ 19.50</div>
+        <hr>
+      </div>
+    </div>
+              
+    <script>
+      //This is the "Offline page" service worker
+      //Add this below content to your HTML page, or add the js file to your page at the very top to register sercie worker
+      if (navigator.serviceWorker.controller) {
+        console.log('[PWA Builder] active service worker found, no need to register')
+      } else {
+        //Register the ServiceWorker
+        navigator.serviceWorker.register('sw.js', {
+          scope: './'
+        }).then(function(reg) {
+          console.log('Service worker has been registered for scope:'+ reg.scope);
+        });
+      }
+
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

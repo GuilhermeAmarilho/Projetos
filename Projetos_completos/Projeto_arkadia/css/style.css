@@ -1,0 +1,317 @@
+/* topo */
+img.hero-logo-circle{position: absolute;width: 20%;left: 40%;top: 5px;}
+body{background: #353436;}
+*{padding: 0px;margin: 0px;font-family: 'Concert One', cursive;}
+.menu{width: 100%;margin-top: 22%;height: 50px;background: #575558;font-family: 'serif';}
+.menu ul{list-style: none;position: relative;}
+li.primaria{width: 20%;float: left;}
+li.secundaria{width: 100%;}
+.menu a{display: block;text-decoration: none;text-align: center;background-color: #575558;color: white;height: 50px;font-size: 19.4px;}
+a.ancora{height:38px; padding-top: 12px;}
+.menu ul ul{visibility: hidden;}
+.menu ul li:hover ul{visibility: visible;}
+.menu a:hover{background-color: rgba(247, 247, 247, 0.541);color: black;}
+.menu ul ul li{float: none;border-bottom: 1px solid white;}   
+label[for='bt_menu']{background-color: #bdbaba;color: white;text-align: center;font-size: 24px;}
+#bt_menu{display: none;}
+label[for='bt_menu']{display: none;}
+
+/* meio */
+
+div.index{width: 60%;margin-left: 20%;
+    margin-top: 180px;
+    background-color: rgba(165, 188, 189, 0.556);
+    border: 0.2vw white solid;
+}
+div.index h4{
+    text-align: center;
+}
+
+div.index p{
+    width: 100%;
+    text-align: center;
+}
+img.index{
+    margin-left: 35%;
+    width: 30%;
+    margin-bottom: 10px;
+}
+div.espaco{
+    width: 50px;
+    height: 10px;
+    background: rgba(165, 188, 189, 0.556);
+}
+.index_espaco{
+    width: 5%;
+}
+iframe{
+    width: 60%;
+    margin-left: 20%;
+    height:30vw; 
+}
+h2.local ,p{
+    text-align: center;
+    color: rgba(255, 255, 255, 0.686);
+    margin-bottom: 20px;
+}
+div.roda{
+    width: 50%;
+    height: auto;
+    margin-left: 25%;
+    margin-top: 40px;
+}
+.principal{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+.slide{
+    display: flex;
+    width: 500%;
+    transition: all .6s;
+}
+label img{
+    width: 20%;
+    cursor: pointer;
+    float: left;
+    opacity: 0.1;
+    transition:  all .4s;
+}
+#foto2:checked ~ .principal .slide{
+    margin-left: -100%;
+}
+#foto3:checked ~ .principal .slide{
+    margin-left: -200%;
+}
+#foto4:checked ~ .principal .slide{
+    margin-left: -300%;
+}
+#foto5:checked ~ .principal .slide{
+    margin-left: -400%;
+}
+input[name='grupo']:checked + label img{
+    opacity: .8;
+}
+input[name='grupo']{
+    display: none;
+}
+h1.local{
+    text-align: center;
+    color: white;
+}
+div.fale{
+    color: rgba(255, 255, 255, 0.589)
+}
+div.comment{
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 20px;
+}
+h1.fale , h2.fale{
+    text-align: center;
+    color: white;
+}
+p.nomefac{
+    font-size: 1.3em;
+    color: rgb(218, 208, 208) 
+}
+p.respfac{
+    font-size: 0.9em;
+    color: white;
+}
+div.fac{
+    width: 60%;
+    margin-left: 20%;
+}
+ul.name{
+    list-style: none;
+    width: 100%;
+}
+ul.name input.comment{
+    width: 100%;
+}
+h2.title, h1.title{
+    margin-top: 160px;
+}
+h1.faa{
+    margin-left: 40%;
+    width: 20%;
+    color: white;
+}
+h1.fa{
+    height: 50px;
+    margin-top: 160px;
+    text-align: center;
+    color: white;
+}
+input.textarea{
+    width: 100%;
+    margin-top: 3px;
+    height: 200px;
+}
+h3.comment{
+    color: rgba(255, 255, 255, 0.802);
+}
+div.comment button{
+    margin-top: 22%;
+    height: 30px;
+    width: 80px;
+    font-size: 1.3em;
+    color: rgb(255, 255, 255);
+    background: rgb(106, 106, 106);
+    position: relative;
+    left: 70%;
+}
+div.maq{margin-top: 50px;}
+div.compra{
+    width: 50%;
+    margin-left: 25%;
+}
+img.venda{
+    width: 100%;
+    height: 30vw;
+}
+p.venda{
+    width: 70%; 
+    height: 30px;
+    margin: 0px;
+}
+button.venda{
+    width: 30%;
+    height: 30px;
+    position: relative;
+    top: -30px;
+    float: right;
+}
+h1.fale2{
+    text-align: right;
+    color: white;
+}
+img.icone{
+    border-radius: 50%;
+    width: 10%;
+    height: 10vw;
+    margin-left: 20%;
+}
+h2.icone{
+    color: white;
+    margin-top: -7%;
+    margin-left: 50%;
+}
+h2.dados{margin-top: 100px;margin-bottom: 20px;}
+h2.dia{
+    color: grey;
+    opacity: 0.8;
+    text-align: center;
+}
+p.dia{
+    opacity: 0.5;
+    text-align: center;
+}
+div.ultimas{
+    width: 94%;
+    margin-left: 3%;
+}
+div#es1{
+    height: 100vw;
+    width: 100%;
+    background: url(../img/i1.png);
+    background-size: cover;
+    display: table;
+    background-attachment: fixed;
+}
+div#es2{
+    height: 100vw;
+    width: 100%;
+    background: url(../img/i2.png);
+    background-size: cover;
+    display: table;
+    background-attachment: fixed;
+}
+div#es3{
+    height: 100vw;
+    width: 100%;
+    background: url(../img/i3.png);
+    background-size: cover;
+    display: table;
+    background-attachment: fixed;
+}
+div#es4{
+    height: 100vw;
+    width: 100%;
+    background: url(../img/i4.png);
+    background-size: cover;
+    display: table;
+    background-attachment: fixed;
+}
+div#es5{
+    height: 100vw;
+    width: 100%;
+    background: url(../img/i5.png);
+    background-size: cover;
+    display: table;
+    background-attachment: fixed;
+}
+h2.titulo{
+    text-align: center;
+    vertical-align: middle;
+    font-size: 50px;
+    color: white;
+}
+div#dia{
+    background: url(../img/slua.png) no-repeat;
+    zoom: 130%;
+    width: 70%;
+    margin-left: 15%;
+    height: 50vw;
+}
+/* medias */    
+@media(min-width:1250px){li.primaria a{height:38px;padding-top: 12px;}
+}
+@media(max-width:780px){
+    img.hero-logo-circle{
+        position: absolute;
+        width: 50%;
+        left: 25%;
+    }
+    div.nav{
+        margin-top: 64%;
+    }
+
+    label[for='bt_menu']{display: block;margin-top: 55%;font-size:32px;height: 50px;}
+    #bt_menu:checked ~ .menu{margin-left: 0px;}
+    .menu{margin-top: 0px;margin-left: -100%;}
+    .menu a{height: 35px;padding-top: 12px;}
+    .menu ul li{
+        width: 100%;
+        border-bottom: 1px white solid;
+        border-top: 1px white solid;
+    }
+    .menu ul ul li{border-bottom: 1px rgb(0, 0, 0) solid;border-top: 1px rgb(0, 0, 0) solid;}
+    .menu ul ul{position: static;overflow: hidden;max-height: 0;}
+    .menu ul li:hover ul{height: auto;max-height: 200px;}
+
+    
+    div.index{width: 90%;margin-left: 5%;}
+    img.index{
+        margin-left: 20%;
+        width: 60%;
+        margin-bottom: 10px;
+    }
+    div.index p{
+        width: 98%;
+        margin-left: 1%;
+    }
+    div.espaco{
+        width: 50px;
+        height: 10px;
+        background: rgba(165, 188, 189, 0.556);
+    }
+    div.roda{
+        width: 80%;
+        height: auto;
+        margin-left: 10%;
+        margin-top: 40px;
+    }
+        
+}

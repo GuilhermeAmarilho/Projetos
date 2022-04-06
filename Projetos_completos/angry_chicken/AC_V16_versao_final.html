@@ -1,0 +1,233 @@
+<html>
+<body>
+<canvas id="canvas1" width="800" height="600"></canvas>
+</body>
+<script>
+var canvas = document.getElementById("canvas1");
+var contexto = canvas.getContext("2d");
+var fps = 20;
+
+//////////////////////////////////////////////////
+
+function Animacao()
+{	this.imagem = new Image();
+	this.imagem.src = "sprites.png";
+	this.atual = 0;
+	this.temporizador = 0;
+	this.sequencia = [ { x:   0, y: 0, largura: 31, altura: 28, tempo: 2, proximo: 1 },
+					   { x:  31, y: 0, largura: 31, altura: 28, tempo: 2, proximo: 2 },
+					   { x:  62, y: 0, largura: 31, altura: 28, tempo: 2, proximo: 3 },
+					   { x:  93, y: 0, largura: 31, altura: 28, tempo: 2, proximo: 4 },
+					   { x: 124, y: 0, largura: 31, altura: 28, tempo: 2, proximo: 5 },
+					   { x: 155, y: 0, largura: 31, altura: 28, tempo: 2, proximo: 0 } ];
+}
+
+Animacao.prototype.atualiza = function()
+{	if (++this.temporizador == this.sequencia[this.atual].tempo)
+	{	this.atual = this.sequencia[this.atual].proximo;
+		this.temporizador = 0;
+	}
+}
+
+Animacao.prototype.desenha = function(contexto, x, y)
+{	contexto.drawImage(this.imagem,
+		this.sequencia[this.atual].x, this.sequencia[this.atual].y,
+		this.sequencia[this.atual].largura, this.sequencia[this.atual].altura,
+		x, y,
+		this.sequencia[this.atual].largura, this.sequencia[this.atual].altura);
+}
+
+//////////////////////////////////////////////////
+
+function Galinha()
+{	this.x = 400;
+	this.y = 100;
+	this.largura = 31;
+	this.altura = 28;
+	this.velocidade_y = 0;
+	this.aceleracao_y = 2; //gravidade
+	this.animacao = new Animacao();
+}
+
+Galinha.prototype.atualiza = function()
+{	this.velocidade_y += this.aceleracao_y;
+	this.y += this.velocidade_y;
+
+	this.animacao.atualiza();
+}
+
+Galinha.prototype.desenha = function(contexto)
+{	this.animacao.desenha(contexto, this.x, this.y);
+}
+
+//////////////////////////////////////////////////
+
+function Obstaculo(x, tipo) //tipo: 0 == alto, 1 == baixo
+{	this.largura = parseInt(1+Math.random()*50)*10;
+	this.altura = parseInt(1+Math.random()*30)*10;
+	this.x = x;
+	this.y = (tipo == 0) ? 0 : 600-this.altura;	
+	this.cor = "rgb("+parseInt(Math.random()*255)+", "+parseInt(Math.random()*255)+", "+parseInt(Math.random()*255)+")";
+}
+
+Obstaculo.prototype.atualiza = function(velocidade_x)
+{	this.x += velocidade_x;
+}
+
+Obstaculo.prototype.desenha = function(contexto)
+{	contexto.fillStyle = this.cor;
+	contexto.fillRect(this.x, this.y, this.largura, this.altura);
+}
+
+Obstaculo.prototype.dentro = function(x, y)
+{	return(((x >= this.x) && (x <= this.x+this.largura)) && ((y >= this.y) && (y <= this.y+this.altura)));
+}
+
+//////////////////////////////////////////////////
+
+function Fundo()
+{	this.x = 0;
+	this.imagem = new Image();
+	this.imagem.src = "fundo.png";
+}
+
+Fundo.prototype.atualiza = function(velocidade_x)
+{	this.x += velocidade_x;
+	if (this.x >= 3840) this.x = 0;
+}
+
+Fundo.prototype.desenha = function(contexto)
+{	if (this.x+800 > 3840)
+	{	contexto.drawImage(this.imagem, this.x, 0, 3840-this.x, 570, 0, 0, 3840-this.x, 600);
+		contexto.drawImage(this.imagem, 0, 0, 800-(3840-this.x), 570, 3840-this.x, 0, 800-(3840-this.x), 600);
+	}
+	else contexto.drawImage(this.imagem, this.x, 0, 800, 570, 0, 0, 800, 600);
+}
+
+//////////////////////////////////////////////////
+
+var galinha1 = new Galinha();
+
+var pontos = 0;
+
+var obstaculos0 = [];
+obstaculos0.push(new Obstaculo(801, 0));
+
+var obstaculos1 = [];
+obstaculos1.push(new Obstaculo(801, 1));
+
+var fundo1 = new Fundo();
+
+var audio1 = document.createElement("audio");
+audio1.src = "galo.wav";
+audio1.play();
+
+var audio2 = document.createElement("audio");
+audio2.src = "risadabruxa.wav";
+
+var estado = 0;
+
+var contador1 = 100;
+
+var timer1 = setInterval(loop, 1000/fps);
+
+function loop()
+{	if (estado == 0)
+	{	contexto.clearRect(0, 0, 800, 600);
+		contexto.strokeRect(0, 0, 800, 600);
+
+		fundo1.atualiza(5);
+		fundo1.desenha(contexto);
+
+
+		galinha1.atualiza();
+		galinha1.desenha(contexto);
+
+		for (var i = 0; i < obstaculos0.length; i++)
+		{	obstaculos0[i].atualiza(-20);
+			obstaculos0[i].desenha(contexto);
+
+			estado += ((obstaculos0[i].dentro(galinha1.x, galinha1.y)) ||
+				(obstaculos0[i].dentro(galinha1.x+galinha1.largura, galinha1.y)) ||
+				(obstaculos0[i].dentro(galinha1.x, galinha1.y+galinha1.altura)) ||
+				(obstaculos0[i].dentro(galinha1.x+galinha1.largura, galinha1.y+galinha1.altura)));
+		}
+
+		for (var i = 0; i < obstaculos1.length; i++)
+		{	obstaculos1[i].atualiza(-15);
+			obstaculos1[i].desenha(contexto);
+
+			estado += ((obstaculos1[i].dentro(galinha1.x, galinha1.y)) ||
+				(obstaculos1[i].dentro(galinha1.x+galinha1.largura, galinha1.y)) ||
+				(obstaculos1[i].dentro(galinha1.x, galinha1.y+galinha1.altura)) ||
+				(obstaculos1[i].dentro(galinha1.x+galinha1.largura, galinha1.y+galinha1.altura)));
+		}
+
+		contexto.font = "20px Arial";
+		contexto.fillStyle = "rgb(255, 255, 255)";
+		contexto.fillText("Pontos: "+pontos, 10, 30);
+
+		for (var i = 0; i < obstaculos0.length; )
+			if (obstaculos0[i].x+obstaculos0[i].largura < 0)
+			{	obstaculos0.splice(i, 1);
+				pontos++;
+			}
+			else i++;
+
+		for (var i = 0; i < obstaculos1.length; )
+			if (obstaculos1[i].x+obstaculos1[i].largura < 0)
+			{	obstaculos1.splice(i, 1);
+				pontos++;
+			}
+			else i++;
+
+		while (obstaculos0[obstaculos0.length-1].x+obstaculos0[obstaculos0.length-1].largura < 800)
+			obstaculos0.push(new Obstaculo(obstaculos0[obstaculos0.length-1].x+obstaculos0[obstaculos0.length-1].largura, 0));
+
+		while (obstaculos1[obstaculos1.length-1].x+obstaculos1[obstaculos1.length-1].largura < 800)
+			obstaculos1.push(new Obstaculo(obstaculos1[obstaculos1.length-1].x+obstaculos1[obstaculos1.length-1].largura, 1));
+	}
+
+	if (estado == 1)
+	{	audio2.play();
+
+		contexto.clearRect(0, 0, 800, 600);
+		contexto.strokeRect(0, 0, 800, 600);
+
+		estado++;
+	}
+
+	if (estado == 2)
+	{	contexto.font = (10*parseInt(1+Math.random()*5))+"px Arial";
+		contexto.fillStyle = "rgb("+parseInt(Math.random()*255)+", "+parseInt(Math.random()*255)+", "+parseInt(Math.random()*255)+")";
+		contexto.fillText("MORREU!", parseInt(Math.random()*800), parseInt(Math.random()*600));
+
+		estado += (--contador1 == 0);
+	}
+
+	if (estado == 3)
+	{	clearInterval(timer1);
+
+		contexto.clearRect(0, 0, 800, 600);
+		contexto.strokeRect(0, 0, 800, 600);
+
+		contexto.font = "50px Arial";
+		contexto.fillStyle = "rgb("+parseInt(Math.random()*255)+", "+parseInt(Math.random()*255)+", "+parseInt(Math.random()*255)+")";
+		contexto.fillText("FIM!", 300, 300);
+		contexto.fillText("Pontos: "+pontos, 300, 350);
+	}
+}
+
+canvas.addEventListener("touchend", function(evento)
+{	evento.preventDefault();
+	if (estado == 0) galinha1.velocidade_y = -20;
+}, false);
+
+window.addEventListener("keyup", function(evento)
+{	evento.preventDefault();
+	if (evento.keyCode == 27) clearInterval(timer1);
+	if ((estado == 0) && (evento.keyCode == 32)) galinha1.velocidade_y = -20;
+}, false);
+</script>
+</html>
+

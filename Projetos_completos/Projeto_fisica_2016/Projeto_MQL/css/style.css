@@ -1,0 +1,78 @@
+*{
+    font-family: 'Audiowide', cursive;
+}
+div.cube{
+    background-color: #86AA6F;
+}
+div.game{
+    background-color: #537F73;
+    border-radius: 10px;
+    margin: auto;
+    width: 70%;
+    height: 600px;
+}
+div.dentro{  
+    height: 500px;
+    width: 85%;
+    margin: auto;
+}
+div.control{
+    padding-top: 1px;
+    background-color: #00A779;
+    width: 70%;
+    height: 180px;
+    margin: auto;
+    border-radius: 10px;
+}
+body, html{
+    text-align: center;
+    position: relative;
+    top: 0px;
+    background-color: #86AA6F;
+}
+div.bloco{
+    position: relative;
+    background-color: #CDF800;
+    width: 20px;
+    height: 20px;
+    top: 100px;
+    left: 80px;;
+}
+div.base{
+    position: relative;
+    width: 100px;
+    height: 5px;
+    top: 100px;
+    background-color: black;
+}
+div.ligacao{
+    position: relative;
+    width: 5px;
+    height: 419px;
+    top: -380px;
+    left: 7.5%;
+    background-color: black
+}
+img{
+    width: 100%;
+    height: 5px;
+    position: relative;
+    top: 500px;
+}
+input{
+    width: 40px;
+}
+p{
+    font-size: 16px;
+}
+span{
+    font-size: 16px;
+}
+@media (max-width: 600px){
+    *{
+        font-size: 10px;
+    }
+    div.control{
+        padding: 0px;
+    }
+}

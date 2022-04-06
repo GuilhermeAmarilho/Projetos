@@ -1,0 +1,37 @@
+*{
+    font-family: 'Audiowide', cursive;
+}
+div.cube{
+    background-color: #86AA6F;
+}
+div.game{
+    background-color: #537F73;
+    border-radius: 10px;
+    margin: auto;
+    width: 70%;
+    height: 600px;
+    vertical-align: middle;
+}
+div.control{
+    margin-top: 20px;
+    background-color: #00A779;
+    width: 50%;
+    height: 60px;
+    margin: auto;
+    border-radius: 10px;
+}
+body, html{
+    text-align: center;
+    position: relative;
+    top: 0px;
+    background-color: #86AA6F;
+}
+img{
+    width: 60%;
+    height: 60%;
+    position: relative;
+    top: 80px;
+}
+h2{
+    padding-top: 10px;
+}
