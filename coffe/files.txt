@@ -1,0 +1,59 @@
+how to make a complete responsive online coffee shop website design template using html css and vanilla javascript step by step.
+create a complete responsive coffee shop one page website design tutorial for beginners using html css and vanilla javascript.
+
+the main feature of this website are:
+✔ responsive header section with search box, navbar toggle and shopping cart box.
+✔ responsive home section using css flexbox.
+✔ responsive about section using css flexbox.
+✔ responsive menu card section using css grid.
+✔ responsive products card section using css grid.
+✔ responsive review / testimonial card section using css grid.
+✔ responsive contact form section using css grid.
+✔ responsive blogs / news card section using css grid.
+✔ responsive footer section.
+
+Buy Me A Coffee :
+https://www.buymeacoffee.com/mrwebdes...
+
+* SOURCE CODES *
+
+DOWNLOAD THE SOURCE CODE FROM GOOGLE DRIVE ( INCLUDES IMAGES ):
+https://drive.google.com/file/d/1NyAY...
+
+font awesome cdn link:
+https://cdnjs.com/libraries/font-awesome
+
+google fonts:
+https://fonts.google.com/specimen/Nun...
+
+Editor : - visual studio code with Laetus: Dark Vibrant Theme
+Browser : - google chrome
+Images / Video / SVG : - 
+01 - https://www.freepik.com/
+02 - https://storyset.com/
+03 - https://pixabay.com/
+04 - https://unsplash.com/
+05 - https://pixabay.com/
+UI Tool : - Figma
+
+New To My Channel Subscribe Now And See More Stuff Like This:
+https://youtube.com/channel/UCKwgH3vA...
+
+Timestamps:
+0:00 demo
+3:45 file structure
+4:38 header section
+18:36 home section
+20:56 about section
+23:29 menu section
+26:22 products section
+30:03 review section
+32:47 contact section
+36:39 blogs section
+39:47 footer section
+43:04 final demo
+
+
+#FrontEnd
+#CoffeeShop
+#WebsiteDesign

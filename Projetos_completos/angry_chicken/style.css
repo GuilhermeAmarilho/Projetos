@@ -1,0 +1,17 @@
+h1{
+    text-align: center;
+}
+ul{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    list-style: none;
+}
+li{
+    margin-bottom: 2vw;
+}
+a{
+    font-size: 1.2em;
+    font-weight: 700;
+    color: black;
+}

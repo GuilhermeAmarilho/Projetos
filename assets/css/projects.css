@@ -1,0 +1,81 @@
+.main{
+    overflow: hidden; /*For animation*/
+}
+.home__content{
+    row-gap: 1rem;
+}
+.home__group{
+    text-align: center;
+}
+.home__img{
+    height: 250px;
+    justify-self: center;
+}
+.home__title{
+    font-size: var(--biggest-font-size);
+    font-weight: var(--font-black);
+    line-height: 109%;
+    margin-bottom: var(--mb-1);
+    text-align: center;
+}
+.home__description{
+    margin-bottom: var(--mb-1);
+    text-align: justify;
+}
+.home__buttons{
+    display: flex;
+    justify-content: space-between;
+}
+/* Swiper Class */
+.swiper-pagination{
+    position: initial;
+    margin-top: var(--mb-1);
+}
+.swiper-pagination-bullet{
+    width: 5px;
+    height: 5px;
+    background-color: var(--title-color);
+    opacity: 1;
+}
+.swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet{
+    margin: 0 .5rem;    
+} 
+.swiper-pagination-bullet-active{
+    width: 1.5rem;
+    height: 5px;
+    border-radius: .5rem;
+}
+/*=============== BUTTONS ===============*/
+.button{
+    display: inline-block;
+    background-color: var(--first-color);
+    color: var(--title-color);
+    padding: 1rem 1.75rem;
+    border-radius: .5rem;
+    font-weight: var(--font-medium);
+    transition: .3s;
+}
+.button:hover{
+    background-color: var(--first-color-alt);
+}
+.button__icon{
+    font-size: 1.25rem;
+}
+.button--ghost{
+    border: 2px solid;
+    background-color: transparent;
+    border-radius: 3rem;
+    padding: .75rem 1.5rem;
+}
+.button--ghost:hover{
+    background: none;
+}
+.button--link{
+    color: var(--title-color);
+}
+.button--flex{
+    display: inline-flex;
+    align-items: center;
+    column-gap: .5rem;
+}
+  
