@@ -1,94 +1,128 @@
-/*=============== Produtos ===============*/
-.products__container{
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  padding-top: 1rem;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;900&display=swap');
+
+/* Variaveis */
+
+:root{
+    --content-color: linear-gradient(90deg, hsl(138, 66%, 20%) -20%, hsl(234, 68%, 23%) 120%);
+    --body-color: linear-gradient(90deg, hsl(139, 66%, 41%) -20%, hsl(234, 66%, 38%) 120%);
+    --text-color: white;
+    --body-font: 'Poppins', sans-serif;
+    --biggest-font-size: 2rem;
+    --h1-font-size: 1.5rem;
+    --h2-font-size: 1.25rem;
+    --h3-font-size: 1rem;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+
+    /*========== Fonte em negrito ==========*/
+
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    --font-black: 900;
 }
 
-.products__content{
-  position: relative;
-  background: var(--container-color);
-  border-radius: 1rem;
-  padding: 1.5rem 0 1rem 0;
-  text-align: center;
-  overflow: hidden;
+/* Pre sets */
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+  
+html{
+    scroll-behavior: smooth;
+    background: var(--body-color);
+    color: var(--text-color);
+    font-family: var(--body-font);
+}
+a{
+    text-decoration: none;
+    color: var(--text-color);
 }
 
-.products__img{
-  width: 90px;
-  transition: .3s;
+
+/* NavBar */
+header{
+    height: 12vh;
+    padding: 2vh 4vw;
+    background: var(--content-color);
+}
+header nav{
+    display: flex;
+    justify-content: space-between;
+}
+header nav a.nav__logo{
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: var(--h2-font-size);
+    font-weight: var(--font-semi-bold);
+}
+header nav a img{
+    width: 4em;
+}
+header nav div.nav__menu{
+    width: 70%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+header nav div.nav__menu ul{
+    display: flex;
+    flex-direction: row-reverse;
+    width: 80%;
+    align-items: center;
+    justify-content: space-around;
+}
+header nav div.nav__menu ul li{
+    list-style: none;
+}
+header nav div.nav__menu ul li a{
+    font-weight: var(--font-medium);
+    font-size: var(--normal-font-size);
 }
 
-.products__subtitle,
-.products__price{
-  display: block;
+/* Main */
+
+main{
+    padding: 4vw 15vw;
 }
-
-.products__subtitle{
-  font-size: var(--smaller-font-size);
-  margin-bottom: var(--mb-0-5);
+main section.principal{
 }
-
-.products__title,
-.products__price{
-  color: var(--title-color);
-  font-weight: var(--font-medium);
-  font-size: var(--normal-font-size);
+main section.principal>h1{
+    font-size: var(--h1-font-size);
+    text-align: center;
+    font-weight: var(--font-medium);
 }
-
-.products__button{
-  display: inline-flex;
-  padding: .5rem;
-  border-radius: .25rem .25rem .75rem .25rem;
-  position: absolute;
-  right: -3rem;
-  bottom: 0;
+main section.principal div.carrousel{
+    display: flex;
+    overflow: hidden;
 }
-
-.products__icon{
-  font-size: 1.25rem;
-  color: var(--title-color);
+main section.principal div.carrousel div.content{
+    position: absolute;
+    width: 70%; /* 100% - 15% de cada lado = 70 */
+    left: 100%;
+    transition: .5s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-
-.products__content:hover .products__img{
-  transform: translateY(-.5rem);
+main section.principal div.carrousel div.content h1{
+    font-weight: var(--font-semi-bold); 
+    font-size: var(--h2-font-size); 
+    padding: 2vw;
 }
-
-.products__content:hover .products__button{
-  right: 0;
+main section.principal div.carrousel div.content div.description{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    /* background: ; */
 }
-
-@media screen and (max-width: 320px){
-  .container{
-    margin-left: var(--mb-1);
-    margin-right: var(--mb-1);
-  }
-
-  .products__container{
-    grid-template-columns: .8fr;
-    justify-content: center;
-  }
+main section.principal div.carrousel div.content div.description p{
+    padding: 5vh 8vw;
+    text-align: justify;
 }
-
-@media screen and (min-width: 767px){
-  .products__container{
-    grid-template-columns: repeat(3, 200px);
-    justify-content: center;
-    gap: 2rem;
-  }
-}
-
-@media screen and (min-width: 1001px){
-  .products__container{
-    gap: 3.5rem;
-  }
-  .products__content{
-    border-radius: 1.5rem;
-  }
-  .products__img{
-    width: 110px;
-  }
-  .products__title{
-    font-size: var(--h3-font-size);
-  }
+main section.principal div.carrousel div.content div.description img{
+    width: 20vw;
 }
