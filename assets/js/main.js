@@ -1,1 +1,0 @@
-document.querySelector("div.content").style.left = "15vw"

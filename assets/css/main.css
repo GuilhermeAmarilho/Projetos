@@ -1,0 +1,114 @@
+
+
+/* MAIN */
+
+/* Home */
+
+main section.home{
+    padding: 10vw 10vw 0 10vw;
+    background: linear-gradient(45deg, rgb(45, 0, 0) 10%, rgb(7, 0, 56) 100%);    
+    height: 100vh;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+section.home div.home__img{
+    width: 30%;
+}
+section.home div.home__img img{
+    width: 20vw;
+    animation: moveDesenho 2s infinite alternate-reverse linear;
+    position: relative;
+}
+@keyframes moveDesenho{
+    from {
+        top: -5%;
+    }
+    to {
+        top: 5%;
+    }
+}
+section.home div.home__content{
+    padding-top: 5vw;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    font-size: 1.5em;
+}
+section.home div.home__content span.span__nome{
+    font-size: 1.8em;
+    color: rgb(185, 185, 185);
+}
+section.home div.home__content span.span__nome::after{
+    content: '▯';
+    margin-left: 5px;
+    opacity: 1;
+    animation: pisca .7s infinite;
+}
+@keyframes pisca {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+section.home div.home__content a{
+    padding: 1vw 0;
+    width: 60%;
+    background: linear-gradient(45deg, rgb(21, 10, 71) 10%, rgb(7, 0, 56) 100%);    
+    border: 1px solid white;
+    border-radius: 2vw;
+    text-align: center;
+    transition: .2s;
+}
+section.home div.home__content a:hover{
+    letter-spacing: 10px;
+    color: red;
+}
+
+/* Sobre */
+section.sobre{
+    background: linear-gradient(135deg, rgb(45, 0, 0) 10%, rgb(7, 0, 56) 100%);    
+    display: flex;
+    flex-direction: column;
+    padding: 10vw;
+}
+section h1.sobre__h1{
+    text-align: center;   
+    font-size: 2.5em;
+    padding-bottom: 3vw;
+}
+section.sobre div.sobre__head{
+    display: flex;
+    justify-content: space-evenly;
+}
+section.sobre div.sobre__head div.sobre__head__item{
+    width: 30%;
+    text-align: center;
+    border-bottom: 1px solid white;
+    cursor: pointer;
+    
+}
+section.sobre div.sobre__head div.sobre__head__item p{
+    font-size: 1.2em;
+    padding: 1vw 0;
+}
+section.sobre div.sobre__head div.sobre__head__item img{
+    width: 4em;
+    background: white;
+    border-radius: 5px;
+}
+section.sobre div.sobre__body{
+    padding: 4vw 6vw 0 6vw;
+    text-align: justify;
+}
+section.sobre div.sobre__body p{
+    text-indent: 2em;
+}
+.sobre__invisible{
+    display: none;
+}
+.sobre__atual{
+    color: rgb(94, 86, 86);
+}
